@@ -3,8 +3,11 @@ package com.raghav.SpringJDBC.repo;
 import com.raghav.SpringJDBC.model.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,6 +35,18 @@ public class StudentRepository {
     }
 
     public List<Student> findAll() {
-        return new ArrayList<>(); // right now we do not have any data that's why returning null
+
+        String sql = "select * from student";
+
+        return jdbc.query(sql,(rs, rowNum) -> {
+
+                Student s = new Student();
+                s.setRollNo(rs.getInt("rollNo"));
+                s.setName(rs.getString("name"));
+                s.setMarks(rs.getInt("marks"));
+
+                return s;
+        });
+//        return new ArrayList<>(); // right now we do not have any data that's why returning null
     }
 }
