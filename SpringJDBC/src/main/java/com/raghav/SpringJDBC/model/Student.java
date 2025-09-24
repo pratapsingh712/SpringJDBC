@@ -8,7 +8,6 @@ import java.lang.annotation.Target;
 
 @Component
 @Scope("prototype")
-@EntityScan
 public class Student {
 
     private int rollNo;
