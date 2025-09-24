@@ -5,6 +5,8 @@ import com.raghav.SpringJDBC.repo.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class StudentService {
 
@@ -23,4 +25,8 @@ public class StudentService {
         repository.save(student);
     }
 
+
+    public List<Student> getStudents() {
+        return repository.findAll();
+    }
 }
