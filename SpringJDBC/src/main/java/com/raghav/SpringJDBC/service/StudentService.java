@@ -1,0 +1,26 @@
+package com.raghav.SpringJDBC.service;
+
+import com.raghav.SpringJDBC.model.Student;
+import com.raghav.SpringJDBC.repo.StudentRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class StudentService {
+
+    private StudentRepository repository;
+
+    public StudentRepository getRepository() {
+        return repository;
+    }
+
+    @Autowired
+    public void setRepository(StudentRepository repository) {
+        this.repository = repository;
+    }
+
+    public void addStudent(Student student){
+        repository.save(student);
+    }
+
+}
