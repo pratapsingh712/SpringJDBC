@@ -1,10 +1,14 @@
 package com.raghav.SpringJDBC.model;
 
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import java.lang.annotation.Target;
+
 @Component
 @Scope("prototype")
+@EntityScan
 public class Student {
 
     private int rollNo;

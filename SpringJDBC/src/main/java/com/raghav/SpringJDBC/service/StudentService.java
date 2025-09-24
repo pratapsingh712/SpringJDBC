@@ -25,7 +25,6 @@ public class StudentService {
         repository.save(student);
     }
 
-
     public List<Student> getStudents() {
         return repository.findAll();
     }
