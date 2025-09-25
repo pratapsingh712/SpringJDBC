@@ -38,15 +38,6 @@ public class StudentRepository {
 
         String sql = "select * from student";
 
-        // Below is the method that helps with fetching data from h2 database
-//        RowMapper mapper = new RowMapper() {
-//            @Override
-//            public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
-//                return null;
-//            }
-//        }
-
-
         return jdbc.query(sql,(rs, rowNum) -> {
 
                 Student s = new Student();
@@ -56,6 +47,14 @@ public class StudentRepository {
 
                 return s;
         });
-//        return new ArrayList<>(); // right now we do not have any data that's why returning null
+
+        // Below is the method that helps with fetching data from h2 database
+//        RowMapper mapper = new RowMapper() {
+//            @Override
+//            public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
+//                return null;
+//            }
+//        }
+//        }
     }
 }
